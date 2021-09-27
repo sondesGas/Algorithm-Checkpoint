@@ -1,23 +1,23 @@
 ALGORITHM algocheckpoint
 VAR
 str:STRING[20];
-Nb_c, Nb_w, Nb_v,:INTEGER=0;
-i : INTEGER;
+Nb_c, Nb_w, Nb_v:INTEGER:=0;
+i : INTEGER:=0;
 BEGIN
 Write ("Entrez une phrase qui se termine par . : ");
 Read (str);
-FOR i FROM 1 TO Length(str) STEP 1 DO
-IF (str[i]<>'' )THEN
+WHILE (str[i]<> '.') DO
     Nb_c:= Nb_c + 1;
-  ENDIF
-  IF (str[i] = ' ' AND str[i]<>'' )THEN
+  END_IF
+  IF (str[i] = ' ')THEN
     Nb_w:= Nb_w + 1;
-  ENDIF
+  END_IF
   IF (str[i] = 'a' OR str[i] = 'e' OR str[i] = 'i' OR str[i] = 'o' OR str[i] = 'u' OR str[i] = 'y')
   Nb_v:= Nb_v + 1;
-  ENDIF
+  END_IF
 i:=i+1;
-Write ("La longueur de cette phrase est: ", Nb_c);
+END_WHILE
+Write ("La longueur de cette phrase est: ", Nb_c+1);
 Write ("Cette phrase compte ", Nb_w + 1, " mots");
 Write ("Cette phrase compte ", Nb_v, " voyelles");
 END
